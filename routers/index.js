@@ -4,13 +4,13 @@ const auth = require("./auth")
 
 // /api
 
-const router = express.Router()
+const router = express.Router();
 
 
 router.use("/questions",question)
 router.use("/auth",auth)
 
 
-module.express = router
+module.exports = router;
 
 

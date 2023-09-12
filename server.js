@@ -1,14 +1,18 @@
 const express = require("express")
 const dotenv = require("dotenv")
-const questions = require("./routers/question")
-const auth = require("./routers/auth")
 const routers = require("./routers/index")
+const connectDatabase = require("./helpers/database/connectDatabase")
 
 
 // Enviroment Variables
 dotenv.config({
     path:"./config/env/config.env"
 })
+
+// MongoDb Connection
+
+connectDatabase()
+
 
 // localhost:5000/api/questions
 // localhost:5000/api/auth

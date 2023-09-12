@@ -21,13 +21,13 @@ const UserSchema = new Schema({
 
     role:{
         type:String,
-        default:"user",
-        enum:["user","admin"]
+        default:"User",
+        enum:["User","admin"]
     },
 
     password:{
         type:String,
-        minlength:[6,"Please provide a password with min lenght 6"],
+        minlength:[6,"| Please provide a password with min lenght 6 |"],
         required:[true,"Please Provide a password"],
         select:false
     },
@@ -72,4 +72,4 @@ const UserSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("user",UserSchema)
+module.exports = mongoose.model("User",UserSchema)

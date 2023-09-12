@@ -18,7 +18,14 @@ connectDatabase()
 // localhost:5000/api/auth
 
 const app = express()
+
+// Express - Body Middleware
+
+app.use(express.json())
+
 const PORT = process.env.PORT;
+
+
 
 // Routers Middleware
 

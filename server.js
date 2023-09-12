@@ -2,6 +2,7 @@ const express = require("express")
 const dotenv = require("dotenv")
 const questions = require("./routers/question")
 const auth = require("./routers/auth")
+const routers = require("./routers/index")
 
 
 // Enviroment Variables
@@ -17,8 +18,7 @@ const PORT = process.env.PORT;
 
 // Routers Middleware
 
-app.use("/api/questions",questions)
-app.use("/api/auth",auth)
+app.use("/api",routers)
 
 
 

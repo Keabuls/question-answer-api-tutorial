@@ -1,7 +1,7 @@
 const User = require("../models/User")
 const CustomError = require("../helpers/error/CustomError")
 const asyncErrorWrapper = require("express-async-handler")
-
+const {sendJwtToClient} = require("../helpers/authorization/TokenHelpers")
 
 const register = asyncErrorWrapper(async (req, res, next) => {
     // POST DATA
@@ -15,32 +15,22 @@ const register = asyncErrorWrapper(async (req, res, next) => {
         role
     });
 
-    res
-        .status(200)
-        .json({
-            success: true,
-            data: user
-        })
+    sendJwtToClient(user,res)
+
 })
 
-const errorTest = (req, res, next) => {
-    // Some Code
 
-    // Question Does Not Exist
-    return next(new TypeError("Type Error"))
+const tokentest = (req,res,next) => {
 
-
-    return next(new Error("Bi Hata Oluştu - Auth"))
-    // Some Code
-
-
+    res.json({
+        success:true,
+        message :"Welcome"
+    })
 
 }
 
 
-
-
 module.exports = {
     register,
-    errorTest
+    tokentest
 };
